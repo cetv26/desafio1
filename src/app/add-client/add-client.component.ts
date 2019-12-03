@@ -46,6 +46,7 @@ export class AddClientComponent implements OnInit {
     if (this.addForm.invalid) {
       return;
     }
+    this.addForm.value['edad']=parseInt(this.addForm.value['edad'])
     this.firebaseService.addUser(this.addForm.value);
     this.router.navigate(['']);
   }
