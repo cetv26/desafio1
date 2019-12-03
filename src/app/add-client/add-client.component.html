@@ -1,0 +1,43 @@
+<a [routerLink]="['']" class="btn btn-success ml-2">Lista de Clientes</a>
+<a [routerLink]="['/kpi']" class="btn btn-success ml-2">KPI</a>
+<hr>
+<div class="col-md-6">
+  <h2 class="text-center">Agregar Cliente</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input formControlName="nombre" placeholder="Nombre" name="nombre" class="form-control" id="nombre" [ngClass]="{'is-invalid':addForm.get('nombre').touched && addForm.get('nombre').invalid}">
+      <div class="feedback-red" *ngIf="isInvalid('nombre')">
+        Primer nombre no valido.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="apellido">Apellido:</label>
+      <input formControlName="apellido" placeholder="Apellido" name="apellido" class="form-control" id="apellido" [ngClass]="{'is-invalid':addForm.get('apellido').touched && addForm.get('apellido').invalid}">
+      <div class="feedback-red" *ngIf="isInvalid('apellido')">
+        Apellido no valido.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="edad">Edad:</label>
+      <input  formControlName="edad" placeholder="edad" name="edad" class="form-control" id="edad" maxlength="2" [ngClass]="{'is-invalid':addForm.get('edad').touched && addForm.get('edad').invalid}">
+      <div class="feedback-red" *ngIf="isDateInvalid('edad')">
+        Edad no valida .
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="fecNac">Fecha de Nacimiento(yyyy-MM-dd):</label>
+      <input  formControlName="fecNac" placeholder="fecha de nacimiento" name="fecNac" class="form-control" id="fecNac" maxlength="10" [ngClass]="{'is-invalid':addForm.get('fecNac').touched && addForm.get('fecNac').invalid}">
+      <div class="feedback-red" *ngIf="isDateInvalid('fecNac')">
+        Fecha de nacimiento no valida .
+      </div>
+    </div>
+
+    <button button [disabled]="addForm.invalid" class="btn btn-success">Agregar Cliente</button>
+
+  </form>
+</div>

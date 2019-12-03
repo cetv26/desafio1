@@ -1,0 +1,30 @@
+<a [routerLink]="['/add-client']" class="btn btn-success ml-2">Creaci&oacute;n de cliente</a>
+<a [routerLink]="['/kpi']" class="btn btn-success ml-2">KPI</a>
+<hr>
+
+<div class="col-xs-12">
+  <h2 class="text-center">Lista de clientes</h2>
+  <div class="list-group users-list">
+    <table class="table table-striped">
+     
+      <thead>
+        <tr>
+          <th >Nombre</th>
+          <th >Apellido</th >
+          <th >Edad</th >
+          <th >Fecha Nacimiento</th >
+          <th >Fecha Muerte(75 esperanza de vida en Perú)</th >  
+        </tr>
+      </thead>
+    <tr *ngFor="let item of items" >
+
+          <td >{{item.payload.doc.data().nombre}} </td>
+          <td >{{item.payload.doc.data().apellido}}</td >
+          <td >{{item.payload.doc.data().edad}}</td >
+          <td >{{item.payload.doc.data().fecNac}}</td >
+          <td >{{getMuerte(item.payload.doc.data().fecNac)}}</td >  
+    </tr>
+  </table>
+  </div>
+</div>
+

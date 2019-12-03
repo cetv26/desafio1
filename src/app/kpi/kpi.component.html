@@ -1,0 +1,27 @@
+<a [routerLink]="['/add-client']" class="btn btn-success ml-2">Creaci&oacute;n de cliente</a>
+<a [routerLink]="['']" class="btn btn-success ml-2">Lista de Clientes</a>
+
+<hr>
+
+<div class="col-xs-12">
+  <h2 class="text-center">Kpi de clientes</h2>
+  <div class="list-group users-list">
+    <table class="table table-striped">
+     
+      <thead>
+        <tr>
+          <th >Promedio de edad </th>
+          <th >desviacion estandar</th >
+
+        </tr>
+      </thead>
+    <tr >
+
+          <td >{{promedio}} </td>
+          <td >{{sd}}</td >
+ 
+    </tr>
+  </table>
+  </div>
+</div>
+
